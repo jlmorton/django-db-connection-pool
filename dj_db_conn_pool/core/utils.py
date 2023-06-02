@@ -1,4 +1,5 @@
 import logging
+
 import sqlparams
 
 logger = logging.getLogger(__name__)
@@ -44,3 +45,6 @@ class CursorWrapper:
             if attr == 'statement':
                 return self._statement
             raise
+
+    def __iter__(self):
+        yield from self._cursor
